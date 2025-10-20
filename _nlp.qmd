@@ -132,6 +132,19 @@ LoRA does not increase inference latency, as once fine tuning is done, you can s
 d'après https://blogs.rstudio.com/ai/posts/2023-06-22-understanding-lora/
 :::
 
+## Les recommendations spécifiques au LoRA
+
+-   un Learning Rate plus important que pour le fine-tuning, et indépendant du rang $r$: 1-2e-4
+
+-   appliquer le LoRA à l'ensemble des couches du réseau : MLP + Attention + MoE...
+
+-   l'initialisation du LoRA avec une distribution uniform pour $A$ de taille  $\frac{1}{\sqrt{d_{in}}}$
+​,une initialization à 0 pour B, un seul LR commun, et $\alpha=32$
+
+D'après [LoRA with regrets blog post](https://thinkingmachines.ai/blog/lora/)
+
+On simule un jeu de données $y = X \theta$ model. $\theta \in \mathbb{R}^{1001, 1000}$.
+
 ## Implémentation avec torch
 
 On simule un jeu de données $y = X \theta$ model. $\theta \in \mathbb{R}^{1001, 1000}$.
