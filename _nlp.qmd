@@ -93,7 +93,7 @@ tok$decode(as.integer(idx))
 
 -   des réseaux toujours plus gros impliquent des entraînements prohibitifs
 
--   la promesse de la prochaîne version qui résoudra les faiblesses constatées
+-   la promesse que la prochaîne version résoudra les faiblesses actuelles
 
 -   le jeu de donnée de réference difficile à constituer
 
@@ -239,8 +239,8 @@ lora_nn_linear <- nn_module(
   initialize = function(linear, r = 16L, alpha = 1) {
     self$linear <- linear
     
-    # les paramêtres du modèle linéirte initial sont  'gelés', donc pas pris en 
-    # considération pr autograd. Ce sont juste des constantes.
+    # les paramêtres du modèle linéaire initial sont  'gelés', donc pas pris en 
+    # considération par autograd. Ce sont juste des constantes.
     purrr::walk(self$linear$parameters, \(x) x$requires_grad_(FALSE))
     
     # LEs paramêtre du Low-rank à entraîner (shortcut here, specific to our lin_model)
