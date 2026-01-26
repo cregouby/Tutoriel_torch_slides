@@ -252,7 +252,7 @@ autoplot(ames_missing_fit)
 :::::: small
 Prediction
 
-::::: {.columns}
+::::: columns
 ::: {.column width="30%"}
 ```{r}
 #| label: "tabnet missing predict"
@@ -525,13 +525,11 @@ train <- training(split)
 test  <- testing(split)
 ```
 
-
 ------------------------------------------------------------------------
 
 Voyons ce que donne tabnet face à XGBoost sur cette tâche
 
 ::::: columns
-
 ::: {.column width="50%"}
 ```{r}
 #| label: "tabnet lending wf"
@@ -557,7 +555,6 @@ tab_wf <- workflow() |>
   add_recipe(tab_rec) |> 
   add_case_weights(case_wts)
 ```
-
 :::
 
 ::: {.column width="50%"}
@@ -577,9 +574,7 @@ xgb_wf <- workflow() |>
   add_recipe(xgb_rec) |> 
   add_case_weights(case_wts)
 ```
-
 :::
-
 :::::
 
 ```{r}
@@ -593,13 +588,13 @@ tab_wf_bce <- workflow() |>
   add_recipe(tab_rec) |> 
   add_case_weights(case_wts)
 ```
+
 :::
 
 ------------------------------------------------------------------------
 
-::::: columns
-::: {.column width="33%" .small}
-
+:::::: columns
+::: {.column .small width="33%"}
 ```{r}
 #| label: "tabnet lending fit"
 #| echo: TRUE
@@ -619,7 +614,7 @@ tab_test |>
 ```
 :::
 
-::: {.column width="33%" .small}
+::: {.column .small width="33%"}
 ```{r}
 #| label: "tabnet lending fit bce"
 #| echo: TRUE
@@ -658,4 +653,4 @@ xgb_test |>
   autoplot() 
 ```
 :::
-:::::
+::::::
